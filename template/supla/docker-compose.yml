@@ -1,6 +1,6 @@
 supla-cloud:
   restart: always
-  image: supla/supla-cloud
+  image: supla/supla-cloud:arm32v7
   ports:
     - "9998:80"
     - "9999:443"
@@ -32,7 +32,7 @@ supla-cloud:
 
 supla-db:
   restart: always
-  image: mysql:5.7.20
+  image: hypriot/rpi-mysql:5.5
   environment:
     MYSQL_ROOT_PASSWORD: password
     MYSQL_DATABASE: supla
@@ -43,7 +43,7 @@ supla-db:
 
 supla-server:
   restart: always
-  image: supla/supla-server
+  image: supla/supla-server:arm32v7
   environment:
     DB_PASSWORD: password
   volumes:
